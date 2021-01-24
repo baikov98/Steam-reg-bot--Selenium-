@@ -48,3 +48,17 @@ def steam(rambler):
     checkbox = steamdrive.find_element_by_id('i_agree_check')
     submit = steamdrive.find_element_by_id('createAccountButton')
     cap = steamdrive.find_element_by_tag_name("iframe")
+
+    fomemail.send_keys(rambler)
+    time.sleep(0.2)
+    formemail2.send_keys(rambler)
+    time.sleep(0.2)
+    checkbox.click()
+    time.sleep(0.2)
+    cap.click()
+    time.sleep(1)
+
+
+""" def main():
+    if __name__ == "__main__":
+        main() """
