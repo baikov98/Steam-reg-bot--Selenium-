@@ -36,3 +36,15 @@ def loginemail(rambler, password):
     time.sleep(2)
     link.click()
     time.sleep(120)
+
+def steam(rambler):
+    steamdrive = webdriver.Chrome()
+    steamdrive.get("https://store.steampowered.com/join/")
+
+    steamdrive.implicitly_wait(12)
+
+    fomemail = steamdrive.find_element_by_id('email')
+    formemail2 = steamdrive.find_element_by_id('reenter_email')
+    checkbox = steamdrive.find_element_by_id('i_agree_check')
+    submit = steamdrive.find_element_by_id('createAccountButton')
+    cap = steamdrive.find_element_by_tag_name("iframe")
