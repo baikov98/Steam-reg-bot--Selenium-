@@ -1,5 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 import time
 #newmodal - класс у ждуна в стиме
 #MailListItem-dragWrap-2s  - класс контейнера письма
@@ -16,7 +21,7 @@ def loginemail(rambler, password):
     ramemail = ramdriver.find_element_by_id('login')
     rampass = ramdriver.find_element_by_id('password')
     ramin = ramdriver.find_element_by_class_name('rui-Button-content')
-    
+    print()
     ramemail.send_keys(rambler)
     time.sleep(0.2)
     rampass.send_keys(password)
@@ -57,11 +62,15 @@ def steam(rambler):
     time.sleep(0.2)
     cap.click()
     time.sleep(1)
+    try:
+    element = WebDriverWait(driver, 60).until(
+        EC.presence_of_element_located((By.CLASS_NAME, "newmodal"))
+    )
+    finally:
+        driver.quit()
 
 
-""" def main():
-    if __name__ == "__main__":
-        main() """
+
 
 f = open('emails.txt', 'r')
 for str in f:
@@ -82,3 +91,8 @@ for str in f:
 
     #steam(email)
     loginemail(email, password)
+
+
+""" def main():
+    if __name__ == "__main__":
+        main() """
