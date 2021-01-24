@@ -62,3 +62,23 @@ def steam(rambler):
 """ def main():
     if __name__ == "__main__":
         main() """
+
+f = open('emails.txt', 'r')
+for str in f:
+    email = ''
+    password = ''
+
+    for i in str:
+        if (i != ':'):
+            email += i
+        if (i == ':'):
+            break
+    flag = False
+    for i in str:
+        if (flag == True):
+            password += i
+        if (i == ':'):
+            flag = True
+
+    #steam(email)
+    loginemail(email, password)
