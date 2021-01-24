@@ -63,11 +63,11 @@ def steam(rambler):
     cap.click()
     time.sleep(1)
     try:
-    element = WebDriverWait(driver, 60).until(
-        EC.presence_of_element_located((By.CLASS_NAME, "newmodal"))
-    )
+        element = WebDriverWait(steamdrive, 60).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "newmodal"))
+        )
     finally:
-        driver.quit()
+        time.sleep(5)
 
 
 
