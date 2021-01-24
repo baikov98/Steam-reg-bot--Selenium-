@@ -22,3 +22,17 @@ def loginemail(rambler, password):
     rampass.send_keys(password)
     time.sleep(0.2)
     ramin.click()
+
+    steam(email)
+    ramdriver.switch_to.default_content()
+    
+    message = ramdriver.find_element_by_xpath("//span[contains(text(),'Steam')]")
+    message.click()
+    time.sleep(2)
+    link = ramdriver.find_elements_by_tag_name('tbody')[8]
+    #ramdriver.find_element_by_xpath("//span[contains(text(),'Подтвердить адрес эл. почты')]")
+
+    actions.move_to_element(link)
+    time.sleep(2)
+    link.click()
+    time.sleep(120)
